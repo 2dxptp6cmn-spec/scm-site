@@ -1,0 +1,14 @@
+<svg xmlns="https://media.letelegramme.fr/api/v1/images/view/68efc18afd71686be40ba252/keep_ratio/68efc18afd71686be40ba252.1" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c1121f" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#0b1b3a" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <circle cx="600" cy="320" r="140" fill="#0b1b3a" opacity="0.10"/>
+  <rect x="360" y="470" width="480" height="200" rx="90" fill="#c1121f" opacity="0.10"/>
+  <text x="600" y="740" text-anchor="middle" font-family="Arial" font-size="44" fill="#111827" opacity="0.60">
+    Photo joueur
+  </text>
+</svg>

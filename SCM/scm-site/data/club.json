@@ -1,0 +1,32 @@
+{
+  "identity": {
+    "name": "S. C. MORLAIX",
+    "affiliationNumber": "553186",
+    "league": "BRETAGNE",
+    "district": "FINISTERE",
+    "kitColors": "Bleu marine et rouge",
+    "teamsCount": 20
+  },
+  "contacts": {
+    "address": "BP 57233 rue de kerveguen 29672 MORLAIX"
+  },
+  "installations": [
+    { "name": "Stade Maurice Marzin", "address": "La Vierge Noire 29600 MORLAIX" },
+    { "name": "Stade Arthur Aurégan", "address": "Avenue du Parc 29600 MORLAIX" },
+    { "name": "Stade de la Madeleine", "address": "Rue Paul Cézanne (à vérifier) 29600 MORLAIX" },
+    { "name": "Stade de Coatserho 1", "address": "Route de Porsmoguer 29600 MORLAIX" }
+  ],
+  "staff": [
+    { "role": "Président", "name": "POSTOLLEC Stéphane", "phone": "06 81 88 54 95", "email": "sp.scmorlaix@gmail.com" },
+    { "role": "Co-président", "name": "HABEAU André", "phone": "", "email": "" },
+    { "role": "Secrétaire général", "name": "BOULANGER Jean-Jacques", "phone": "06 64 51 16 20", "email": "jjb.scmorlaix@gmail.com" },
+    { "role": "Trésorier", "name": "FRANCOIS Claude", "phone": "06 17 10 21 67", "email": "claudefrancois.scmorlaix@gmail.com" },
+    { "role": "Pôle communication", "name": "BERTHET Cyril", "phone": "", "email": "" }
+  ],
+  "links": [
+    { "label": "FFF – Fiche club", "url": "https://www.fff.fr/competition/club/553186-s-c-morlaix/equipes.html" },
+    { "label": "Site officiel", "url": "https://www.scmorlaix.com/" },
+    { "label": "Facebook", "url": "https://www.facebook.com/sc.morlaix/" },
+    { "label": "Instagram", "url": "https://www.instagram.com/scmorlaix29/" }
+  ]
+}

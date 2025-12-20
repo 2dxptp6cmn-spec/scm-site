@@ -1,0 +1,26 @@
+{
+  "weekLabel": "Week-end du 20/12/2025",
+  "matches": [
+    {
+      "team": "Seniors A",
+      "competition": "Régional",
+      "date": "2025-12-14",
+      "status": "FINISHED",
+      "home": "Plaintel SP 1",
+      "away": "Morlaix SC 1",
+      "scoreHome": 1,
+      "scoreAway": 0,
+      "notes": "Match serré, décidé sur une action."
+    },
+    {
+      "team": "Seniors A",
+      "competition": "Régional",
+      "date": "2026-01-18",
+      "status": "SCHEDULED",
+      "home": "Morlaix SC 1",
+      "away": "Paimpol Stade FC 1",
+      "kickoff": "15:00",
+      "location": "Morlaix"
+    }
+  ]
+}

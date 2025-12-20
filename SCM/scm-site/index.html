@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SC Morlaix : résultats du week-end, effectif, convocation, infos officielles et contact." />
+  <title>SC Morlaix | Sporting Club Morlaisien</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./script.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#accueil">Aller au contenu</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#accueil" aria-label="Accueil SC Morlaix">
+        <div class="crest" aria-hidden="true">
+          <span class="crest-initials">SCM</span>
+        </div>
+        <div class="brand-text">
+          <p class="brand-title">SC Morlaix</p>
+          <p class="brand-sub" id="brandSub">Sporting Club Morlaisien</p>
+        </div>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="sr-only">Ouvrir le menu</span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Navigation principale">
+        <a class="nav-link" href="#accueil">Accueil</a>
+        <a class="nav-link" href="#galerie">Galerie des légendes</a>
+        <a class="nav-link" href="#joueurs">Joueurs</a>
+        <a class="nav-link" href="#convocation">Convocation</a>
+        <a class="nav-link" href="#infos">Infos</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ACCUEIL -->
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Sporting Club Morlaisien</h1>
+          <p class="lead">
+            Résultats du week-end, effectif, convocation, infos pratiques et bureau/dirigeants (données officielles FFF intégrées).
+          </p>
+
+          <div class="hero-kpis" id="heroKpis">
+            <!-- Rempli par JS depuis club.json -->
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#resultats">Résultats du week-end</a>
+            <a class="btn ghost" href="#convocation">Convocation</a>
+            <a class="btn ghost" href="#infos">Infos officielles</a>
+          </div>
+
+          <p class="note">
+            Pour mettre à jour les joueurs et résultats, tu modifies simplement <code>data/players.json</code> et <code>data/results.json</code>.
+          </p>
+        </div>
+
+        <aside class="card featured">
+          <div class="featured-head">
+            <p class="pill">À la une</p>
+            <h2>Prochain match</h2>
+          </div>
+
+          <div class="featured-body">
+            <div class="meta-row">
+              <div>
+                <p class="label">Équipe</p>
+                <p class="value" id="nextTeam">Seniors</p>
+              </div>
+              <div class="right">
+                <p class="label">Coup d’envoi</p>
+                <p class="value" id="nextKickoff">Dimanche • 15:00</p>
+              </div>
+            </div>
+
+            <div class="teams">
+              <div class="team">
+                <span class="dot home" aria-hidden="true"></span>
+                <p class="team-name">SC Morlaix</p>
+              </div>
+              <div class="vs">vs</div>
+              <div class="team">
+                <span class="dot away" aria-hidden="true"></span>
+                <p class="team-name" id="nextOpponent">Adversaire</p>
+              </div>
+            </div>
+
+            <div class="meta-row">
+              <div>
+                <p class="label">Lieu</p>
+                <p class="value" id="nextLocation">Morlaix • (stade à préciser)</p>
+              </div>
+              <div class="right">
+                <p class="label">Rendez-vous</p>
+                <p class="value" id="nextMeet">13:45</p>
+              </div>
+            </div>
+
+            <div class="actions">
+              <a class="btn" href="#convocation">Ouvrir la convocation</a>
+              <button class="btn ghost" type="button" id="printPageBtn">Imprimer</button>
+            </div>
+
+            <p class="hint">
+              Pour un calendrier “live” officiel : ajoute un lien vers la page FFF “Résultats / calendrier” de ton équipe.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- RESULTATS -->
+    <section class="section" id="resultats">
+      <div class="container">
+        <header class="section-head">
+          <h2>Résultats du week-end</h2>
+          <p class="muted">
+            Remplis ce bloc chaque semaine via <code>data/results.json</code>. (Option “live FFF” possible ensuite via backend/bridge.)
+          </p>
+        </header>
+
+        <div class="results-toolbar">
+          <label class="field inline">
+            <span>Filtrer par équipe</span>
+            <select id="teamFilter">
+              <option value="all">Toutes</option>
+            </select>
+          </label>
+
+          <label class="field inline">
+            <span>Afficher</span>
+            <select id="statusFilter">
+              <option value="all">Tous</option>
+              <option value="FINISHED">Terminés</option>
+              <option value="SCHEDULED">À venir</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="grid results" id="resultsList">
+          <!-- Rempli par JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section class="section alt" id="galerie">
+      <div class="container">
+        <header class="section-head">
+          <h2>Galerie des légendes</h2>
+          <p class="muted">
+            Remplace les cartes par des photos historiques (équipes, tournois, bénévoles, montées, coupes).
+          </p>
+        </header>
+
+        <div class="grid gallery">
+          <figure class="card media" data-lightbox="1">
+            <div class="media-ph" aria-hidden="true"><span>Moment fort</span></div>
+            <figcaption>
+              <p class="strong">Soir de coupe</p>
+              <p class="muted">Un match qui reste dans les mémoires.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card media" data-lightbox="2">
+            <div class="media-ph" aria-hidden="true"><span>Génération jeunes</span></div>
+            <figcaption>
+              <p class="strong">École de foot</p>
+              <p class="muted">Formation, plaisir et progression.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card media" data-lightbox="3">
+            <div class="media-ph" aria-hidden="true"><span>Bénévoles</span></div>
+            <figcaption>
+              <p class="strong">Les indispensables</p>
+              <p class="muted">Le club, c’est aussi eux.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card media" data-lightbox="4">
+            <div class="media-ph" aria-hidden="true"><span>Derby</span></div>
+            <figcaption>
+              <p class="strong">Ambiance</p>
+              <p class="muted">Tribunes, esprit club, fierté.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOUEURS -->
+    <section class="section" id="joueurs">
+      <div class="container">
+        <header class="section-head">
+          <h2>Joueurs</h2>
+          <p class="muted">
+            Effectif (exemple). Ajoute tes photos dans <code>assets/players/</code> et mets le chemin dans <code>data/players.json</code>.
+          </p>
+        </header>
+
+        <div class="players-toolbar">
+          <label class="field inline">
+            <span>Poste</span>
+            <select id="positionFilter">
+              <option value="all">Tous</option>
+              <option value="Gardien">Gardien</option>
+              <option value="Défenseur">Défenseur</option>
+              <option value="Milieu">Milieu</option>
+              <option value="Attaquant">Attaquant</option>
+              <option value="Staff">Staff</option>
+            </select>
+          </label>
+
+          <label class="field inline">
+            <span>Recherche</span>
+            <input id="playerSearch" type="text" placeholder="Nom, prénom..." />
+          </label>
+        </div>
+
+        <div class="grid players" id="playersGrid">
+          <!-- Rempli par JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONVOCATION -->
+    <section class="section alt" id="convocation">
+      <div class="container">
+        <header class="section-head">
+          <h2>Convocation</h2>
+          <p class="muted">
+            Convocation éditable, enregistrée dans ton navigateur. Imprimable (vestiaire / staff).
+          </p>
+        </header>
+
+        <div class="convoc-layout">
+          <article class="card convoc-card">
+            <div class="convoc-head">
+              <div>
+                <p class="label">Match</p>
+                <p class="value" id="matchTitle">SC Morlaix vs Adversaire</p>
+              </div>
+              <div class="right">
+                <p class="label">Date / heure</p>
+                <p class="value" id="matchDatetime">Dimanche • 15:00</p>
+              </div>
+            </div>
+
+            <div class="convoc-meta">
+              <div>
+                <p class="label">Lieu</p>
+                <p class="value" id="matchLocation">Morlaix • (stade à préciser)</p>
+              </div>
+              <div class="right">
+                <p class="label">Rendez-vous</p>
+                <p class="value" id="rendezvous">13:45</p>
+              </div>
+            </div>
+
+            <div class="table-wrap" role="region" aria-label="Tableau de convocation">
+              <table class="table" id="convocationTable">
+                <thead>
+                  <tr>
+                    <th>Joueur</th>
+                    <th>Poste</th>
+                    <th>Statut</th>
+                    <th class="right">Action</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <div class="convoc-actions">
+              <button class="btn" type="button" id="addPlayerBtn">Ajouter un joueur</button>
+              <button class="btn ghost" type="button" id="resetConvocationBtn">Réinitialiser</button>
+              <button class="btn primary" type="button" id="printConvocationBtn">Imprimer</button>
+            </div>
+          </article>
+
+          <aside class="card settings">
+            <h3>Paramètres du match</h3>
+
+            <label class="field">
+              <span>Intitulé</span>
+              <input type="text" id="matchTitleInput" placeholder="SC Morlaix vs ..." />
+            </label>
+
+            <label class="field">
+              <span>Date / heure</span>
+              <input type="text" id="matchDatetimeInput" placeholder="Dimanche • 15:00" />
+            </label>
+
+            <label class="field">
+              <span>Lieu</span>
+              <input type="text" id="matchLocationInput" placeholder="Morlaix • Stade ..." />
+            </label>
+
+            <label class="field">
+              <span>Heure de rendez-vous</span>
+              <input type="text" id="rendezvousInput" placeholder="13:45" />
+            </label>
+
+            <div class="settings-actions">
+              <button class="btn primary" type="button" id="saveMatchBtn">Enregistrer</button>
+              <button class="btn ghost" type="button" id="fillFromResultsBtn">Auto (dernier match)</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Aide</h3>
+            <p class="muted">
+              Pour une convocation “par équipe”, on peut ajouter un sélecteur (Seniors A/B, U18, U15…)
+              et enregistrer plusieurs convocations.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFOS -->
+    <section class="section" id="infos">
+      <div class="container">
+        <header class="section-head">
+          <h2>Infos officielles</h2>
+          <p class="muted">
+            Identité, coordonnées, installations et bureau/staff (source : fiche club FFF).
+          </p>
+        </header>
+
+        <div class="grid info-grid">
+          <article class="card pad">
+            <h3>Identité</h3>
+            <ul class="info-list" id="clubIdentity">
+              <!-- Rempli par JS -->
+            </ul>
+          </article>
+
+          <article class="card pad">
+            <h3>Coordonnées</h3>
+            <ul class="info-list" id="clubContacts">
+              <!-- Rempli par JS -->
+            </ul>
+          </article>
+
+          <article class="card pad">
+            <h3>Installations</h3>
+            <div class="installations" id="clubInstallations">
+              <!-- Rempli par JS -->
+            </div>
+          </article>
+
+          <article class="card pad">
+            <h3>Bureau / Staff</h3>
+            <p class="muted small">
+              Sélection des postes principaux. Tu peux compléter dans <code>data/club.json</code>.
+            </p>
+            <div class="staff" id="clubStaff">
+              <!-- Rempli par JS -->
+            </div>
+          </article>
+        </div>
+
+        <div class="callout">
+          <div>
+            <p class="strong">Liens officiels</p>
+            <p class="muted">Site, réseaux et pages compétition.</p>
+          </div>
+          <div class="callout-actions" id="officialLinks">
+            <!-- Rempli par JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section alt" id="contact">
+      <div class="container">
+        <header class="section-head">
+          <h2>Contact</h2>
+          <p class="muted">
+            Formulaire mail (ouvre votre client). Pour un vrai envoi serveur, il faudra Netlify Forms / Formspree / backend.
+          </p>
+        </header>
+
+        <div class="contact-layout">
+          <form class="card pad form" id="contactForm">
+            <label class="field">
+              <span>Nom</span>
+              <input type="text" name="name" required placeholder="Votre nom" />
+            </label>
+
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" required placeholder="votre@email.com" />
+            </label>
+
+            <label class="field">
+              <span>Sujet</span>
+              <input type="text" name="subject" required placeholder="Licence / Jeunes / Seniors / Partenariat..." />
+            </label>
+
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" required rows="6" placeholder="Écrivez votre message..."></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit">Envoyer</button>
+              <button class="btn ghost" type="reset">Effacer</button>
+            </div>
+
+            <p class="muted small">
+              Conseil : ajoute ici l’email “contact club” officiel si tu veux centraliser.
+            </p>
+          </form>
+
+          <aside class="card pad">
+            <h3>Accès rapides</h3>
+            <div class="quick" id="quickLinks">
+              <!-- Rempli par JS -->
+            </div>
+            <div class="divider"></div>
+            <p class="muted">
+              Si tu me donnes la liste réelle des joueurs + photos (ou un dossier Drive), je te renvoie le site “prêt à publier”.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© <span id="year"></span> SC Morlaix — Template</p>
+      <div class="footer-links">
+        <a href="#top">Retour en haut</a>
+        <a href="#infos">Infos</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Galerie -->
+  <dialog class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="btn small ghost" type="button" id="lightboxClose">Fermer</button>
+      <div class="lightbox-media" id="lightboxMedia" aria-label="Aperçu"></div>
+      <p class="muted" id="lightboxCaption"></p>
+    </div>
+  </dialog>
+
+  <!-- Modal Ajout joueur (Convocation) -->
+  <dialog class="modal" id="playerModal">
+    <form class="card pad modal-inner" method="dialog" id="playerForm">
+      <h3>Ajouter un joueur</h3>
+
+      <label class="field">
+        <span>Nom</span>
+        <input type="text" name="playerName" required placeholder="Nom / Prénom" />
+      </label>
+
+      <label class="field">
+        <span>Poste</span>
+        <select name="playerPosition" required>
+          <option value="Gardien">Gardien</option>
+          <option value="Défenseur">Défenseur</option>
+          <option value="Milieu">Milieu</option>
+          <option value="Attaquant">Attaquant</option>
+          <option value="Polyvalent">Polyvalent</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Statut</span>
+        <select name="playerStatus" required>
+          <option value="Convoqué">Convoqué</option>
+          <option value="Remplaçant">Remplaçant</option>
+          <option value="Incertain">Incertain</option>
+          <option value="Blessé">Blessé</option>
+        </select>
+      </label>
+
+      <div class="form-actions">
+        <button class="btn primary" value="confirm" type="submit">Ajouter</button>
+        <button class="btn ghost" value="cancel" type="button" id="closePlayerModal">Annuler</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Prénom NOM",
+    "position": "Attaquant",
+    "team": "Seniors A",
+    "number": 9,
+    "photo": "./assets/players/placeholder.svg",
+    "tags": ["Buteur", "Vitesse"]
+  },
+  {
+    "name": "Prénom NOM",
+    "position": "Milieu",
+    "team": "Seniors A",
+    "number": 6,
+    "photo": "./assets/players/placeholder.svg",
+    "tags": ["Récup", "Relance"]
+  },
+  {
+    "name": "Prénom NOM",
+    "position": "Défenseur",
+    "team": "Seniors B",
+    "number": 4,
+    "photo": "./assets/players/placeholder.svg",
+    "tags": ["Duel", "Leader"]
+  },
+  {
+    "name": "Prénom NOM",
+    "position": "Gardien",
+    "team": "Seniors A",
+    "number": 1,
+    "photo": "./assets/players/placeholder.svg",
+    "tags": ["Réflexes", "Relances"]
+  },
+  {
+    "name": "Coach Prénom NOM",
+    "position": "Staff",
+    "team": "Seniors",
+    "number": null,
+    "photo": "./assets/players/placeholder.svg",
+    "tags": ["Coach"]
+  }
+]
